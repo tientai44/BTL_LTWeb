@@ -327,73 +327,73 @@ namespace NotUseAuto.Data
             var admin = new ApplicationUser
             {
                 Id = "1",
-                UserName = "hoanghip108@gmail.com",
-                Email = "hoanghip108@gmail.com",
-                NormalizedUserName = "hoanghip108@gmail.com",
+                UserName = "tientai@gmail.com",
+                Email = "tientai@gmail.com",
+                NormalizedUserName = "tientai@gmail.com",
                 Image = "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B",
-                DoB = "2000/08/10",
-                Address = "Thái Nguyên",
-                FullName = "Đỗ Nguyễn Huy Hoàng"
+                DoB = "2002/04/04",
+                Address = "Hà Nội",
+                FullName = "Nguyễn Tiến Tài"
             };
             var admin2 = new ApplicationUser
             {
                 Id = "2",
-                UserName = "admin@fpt.com",
-                Email = "admin@fpt.com",
-                NormalizedUserName = "admin@fpt.com",
+                UserName = "ducdao@gmail.com",
+                Email = "ducdao@gmail.com",
+                NormalizedUserName = "ducdao@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/08/10",
+                DoB = "2002/01/01",
                 Address = "Hà Nội",
-                FullName = "Trọng Đạt"
+                FullName = "Trần Đức Đạo"
             };
             
 
             var customer = new ApplicationUser
             {
                 Id = "3",
-                UserName = "customer@fpt.com",
-                Email = "customer@fpt.com",
-                NormalizedUserName = "customer@fpt.com",
+                UserName = "vanchung@gmail.com",
+                Email = "vanchung@gmail.com",
+                NormalizedUserName = "vanchung@fpt.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/08/10",
-                Address = "Phú Thọ",
-                FullName = "Huy"
+                DoB = "2002/01/01",
+                Address = "Hà Nội",
+                FullName = "Nguyễn Văn Chung"
 
             };
             var admin3 = new ApplicationUser
             {
                 Id = "4",
-                UserName = "quanghuy@fpt.com",
-                Email = "quanghuy@fpt.com",
-                NormalizedUserName = "quanghuy@fpt.com",
+                UserName = "hungthinh@gmail.com",
+                Email = "hungthinh@gmail.com",
+                NormalizedUserName = "hungthinh@gmail.com",
                 Image = "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg",
-                DoB = "2002/02/18",
+                DoB = "2002/01/01",
                 Address = "Hà Nội",
-                FullName = "Dang Quang Huy"
+                FullName = "Đỗ Hưng Thịnh"
             };
             var owner1 = new ApplicationUser
             {
                 Id = "5",
-                UserName = "owner1@fpt.com",
-                Email = "owner1@fpt.com",
-                NormalizedUserName = "owner1@fpt.com",
+                UserName = "vanhung@gmail.com",
+                Email = "vanhung@gmail.com",
+                NormalizedUserName = "vanhung@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/08/10",
-                Address = "Phú Thọ",
-                FullName = "Lan Phuong"
+                DoB = "2002/01/01",
+                Address = "Hà Nội",
+                FullName = "Nguyễn Văn Hưng"
 
             };
 
             var owner2 = new ApplicationUser
             {
                 Id = "6",
-                UserName = "owner2@fpt.com",
-                Email = "owner2@fpt.com",
-                NormalizedUserName = "owner2@fpt.com",
+                UserName = "tienduc@gmail.com",
+                Email = "tienduc@gmail.com",
+                NormalizedUserName = "tienduc@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/08/10",
-                Address = "Phú Thọ",
-                FullName = "Truc My"
+                DoB = "2002/01/01",
+                Address = "Hà Nội",
+                FullName = "Nguyễn Tiến Đức"
 
             };
 
@@ -401,7 +401,7 @@ namespace NotUseAuto.Data
             var hasher = new PasswordHasher<ApplicationUser>();
 
             //3. thiết lập và mã hóa mật khẩu   từng tài khoản
-            admin.PasswordHash = hasher.HashPassword(admin, "Hoanghandsome1");
+            admin.PasswordHash = hasher.HashPassword(admin, "123456");
             admin2.PasswordHash = hasher.HashPassword(admin2, "123456");
             customer.PasswordHash = hasher.HashPassword(customer, "123456");
             admin3.PasswordHash = hasher.HashPassword(admin3, "123456");
