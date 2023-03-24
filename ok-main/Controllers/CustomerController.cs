@@ -202,6 +202,7 @@ namespace NotUseAuto.Controllers
 
                 };
                 context.Order.Add(order);
+                
                 context.SaveChanges();
             }
             ClearCart();
