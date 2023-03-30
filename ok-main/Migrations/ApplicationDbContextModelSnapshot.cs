@@ -758,13 +758,10 @@ namespace NotUseAuto.Migrations
                             Email = "vanchung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-<<<<<<< HEAD
-                            NormalizedUserName = "vanchung@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECrCb36AcTSOyPHIy40mTNF2NQ+WTIdK4IuO2I9WBoJR3oE+sJ+4wsA3ZJmkUU0+5w==",
-=======
+
                             NormalizedUserName = "vanchung@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEBsA74fkWwq5m6FbPvR7GSVQsfDOkTQKXBk878VcVESB04bTsilTIOmK18I2A+Ja7A==",
->>>>>>> origin/FINAL
+
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "05c1c139-c2e1-4970-b98e-62731d22cb8f",
                             TwoFactorEnabled = false,
