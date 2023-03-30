@@ -22,14 +22,18 @@
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <div class="checkbox">
+                
+                
+                <div class="my-2 d-flex justify-content-between align-items-center">
+                    <div class="form-check">
                         <label asp-for="Input.RememberMe" style="color:white">
-                            <input asp-for="Input.RememberMe" />
+                                <input type="checkbox" class="form-check-input" asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>
-                    </div>
+                        </div>
+                        <a class="auth-link text-black" asp-page="./ForgotPassword" asp-route-returnUrl="@Model.ReturnUrl"><b>Forgot password?</b></a>
                 </div>
+                
                 <div class="form-group mb-0 text-center">
                     <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i> Log In </button>
                 </div>
