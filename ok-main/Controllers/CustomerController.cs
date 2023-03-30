@@ -53,7 +53,8 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
-        //[Route("/")]
+        [Route("/Customer/")]
+        [Route("/")]
         public IActionResult Index(int ? page)
         {
             int pageSize = 8;
@@ -70,14 +71,15 @@ namespace NotUseAuto.Controllers
         public IActionResult Index2(int? id,int?page)
         {
             //var products = context.Product.ToList();
-            //var categories = context.Category.ToList();
-            //ViewBag.Categories = categories;
+            var categories = context.Category.ToList();
+            ViewBag.Categories = categories;
             //var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
             //return View(productSearch);
             int pageSize = 8;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var lstProduct = context.Product.AsNoTracking().Where(x=>x.CategoryId==id).OrderBy(x => x.Id);
             PagedList<Product> lst = new PagedList<Product>(lstProduct, pageNumber, pageSize);
+            ViewBag.NowCategoriesID=id;
             return View(lst);
         }
         [HttpPost]

@@ -14,39 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Ogani\fonts\ElegantIcons.svg" />
-    <None Include="wwwroot\Ogani\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\Ogani\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\Ogani\js\bootstrap.min.js" />
-    <None Include="wwwroot\Ogani\js\jquery-3.3.1.min.js" />
-    <None Include="wwwroot\Ogani\js\jquery-ui.min.js" />
-    <None Include="wwwroot\Ogani\js\jquery.nice-select.min.js" />
-    <None Include="wwwroot\Ogani\js\jquery.slicknav.js" />
-    <None Include="wwwroot\Ogani\js\main.js" />
-    <None Include="wwwroot\Ogani\js\mixitup.min.js" />
-    <None Include="wwwroot\Ogani\js\owl.carousel.min.js" />
-    <None Include="wwwroot\Ogani\sass\style.scss" />
-    <None Include="wwwroot\Ogani\sass\_base.scss" />
-    <None Include="wwwroot\Ogani\sass\_blog-details.scss" />
-    <None Include="wwwroot\Ogani\sass\_blog-sidebar.scss" />
-    <None Include="wwwroot\Ogani\sass\_blog.scss" />
-    <None Include="wwwroot\Ogani\sass\_breadcrumb.scss" />
-    <None Include="wwwroot\Ogani\sass\_checkout.scss" />
-    <None Include="wwwroot\Ogani\sass\_contact.scss" />
-    <None Include="wwwroot\Ogani\sass\_footer.scss" />
-    <None Include="wwwroot\Ogani\sass\_header.scss" />
-    <None Include="wwwroot\Ogani\sass\_hero.scss" />
-    <None Include="wwwroot\Ogani\sass\_home-page.scss" />
-    <None Include="wwwroot\Ogani\sass\_mixins.scss" />
-    <None Include="wwwroot\Ogani\sass\_responsive.scss" />
-    <None Include="wwwroot\Ogani\sass\_shop-details.scss" />
-    <None Include="wwwroot\Ogani\sass\_shop-grid.scss" />
-    <None Include="wwwroot\Ogani\sass\_shoping-cart.scss" />
-    <None Include="wwwroot\Ogani\sass\_sidebar.scss" />
-    <None Include="wwwroot\Ogani\sass\_variable.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.2.3" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.30" />
