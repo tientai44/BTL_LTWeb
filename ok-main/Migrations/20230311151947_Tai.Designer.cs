@@ -760,16 +760,11 @@ namespace NotUseAuto.Migrations
                             Email = "vanchung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-<<<<<<< HEAD:ok-main/Migrations/20230324093109_Kum.Designer.cs
 
                             NormalizedUserName = "vanchung@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEBsA74fkWwq5m6FbPvR7GSVQsfDOkTQKXBk878VcVESB04bTsilTIOmK18I2A+Ja7A==",
 
-=======
-                            NormalizedUserName = "vanchung@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBsA74fkWwq5m6FbPvR7GSVQsfDOkTQKXBk878VcVESB04bTsilTIOmK18I2A+Ja7A==",
->>>>>>> parent of d4b281a (Merge branch 'TD_Dao' into FINAL):ok-main/Migrations/20230311151947_Tai.Designer.cs
-                            PhoneNumberConfirmed = false,
+                                          PhoneNumberConfirmed = false,
                             SecurityStamp = "96c2499c-2075-48d2-bda6-5d04a8baa331",
                             TwoFactorEnabled = false,
                             UserName = "vanchung@gmail.com",
