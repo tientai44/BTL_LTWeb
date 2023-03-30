@@ -353,7 +353,7 @@ namespace NotUseAuto.Data
                 Id = "3",
                 UserName = "vanchung@gmail.com",
                 Email = "vanchung@gmail.com",
-                NormalizedUserName = "vanchung@fpt.com",
+                NormalizedUserName = "vanchung@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
                 DoB = "2002/01/01",
                 Address = "Hà Nội",

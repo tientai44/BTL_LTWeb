@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using System.Security.Claims;
 using System;
+using X.PagedList;
 
 namespace NotUseAuto.Controllers
 {
@@ -52,23 +53,34 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
+        [Route("/Customer/")]
         [Route("/")]
-        public IActionResult Index()
+        public IActionResult Index(int ? page)
         {
+            int pageSize = 8;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var lstProduct = context.Product.AsNoTracking().OrderBy(x => x.Id);
+            PagedList<Product> lst = new PagedList<Product>(lstProduct, pageNumber, pageSize);
             var products = context.Product.ToList();
             var categories = context.Category.ToList();
             ViewBag.Categories = categories;
-            return View(products);
+            return View(lst);
         }
 
 
-        public IActionResult Index2(int? id)
+        public IActionResult Index2(int? id,int?page)
         {
-            var products = context.Product.ToList();
+            //var products = context.Product.ToList();
             var categories = context.Category.ToList();
             ViewBag.Categories = categories;
-            var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
-            return View(productSearch);
+            //var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
+            //return View(productSearch);
+            int pageSize = 8;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var lstProduct = context.Product.AsNoTracking().Where(x=>x.CategoryId==id).OrderBy(x => x.Id);
+            PagedList<Product> lst = new PagedList<Product>(lstProduct, pageNumber, pageSize);
+            ViewBag.NowCategoriesID=id;
+            return View(lst);
         }
         [HttpPost]
         public IActionResult Search(string search)
