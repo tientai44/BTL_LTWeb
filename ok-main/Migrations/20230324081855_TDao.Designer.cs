@@ -760,7 +760,7 @@ namespace NotUseAuto.Migrations
                             Email = "vanchung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedUserName = "vanchung@fpt.com",
+                            NormalizedUserName = "vanchung@gmail.com",
                             PasswordHash = "AQAAAAEAACcQAAAAEEz59VbRbmQCyEStLsR55PFeZStndfsXUMmSiqc7H4iJEnsGYsUN0QCYsX8kM5FcjA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "548afe98-960d-4af0-a0af-9120f56e11fe",
