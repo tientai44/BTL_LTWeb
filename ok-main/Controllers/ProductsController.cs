@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using NotUseAuto.Data;
 using NotUseAuto.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-
+using X.PagedList;
 
 namespace NotUseAuto.Controllers
 {
@@ -28,13 +30,18 @@ namespace NotUseAuto.Controllers
 
 
         [Authorize(Roles = "Owner")]
-        public IActionResult Index()
+        public IActionResult Index(int ?page)
         {
-            var products = context.Product.ToList();
+			int pageSize = 8;
+			int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+			var lstProduct = context.Product.AsNoTracking().OrderBy(x => x.Id);
+			PagedList<Product> prolst = new PagedList<Product>(lstProduct, pageNumber, pageSize);
+			var products = context.Product.ToList();
             var categories = context.Category.ToList();
             ViewBag.Categories = categories;
-            return View(products);
-        }
+            return View(prolst);
+      
+		}
 
         [Authorize(Roles = "Owner")]
         [HttpGet]
