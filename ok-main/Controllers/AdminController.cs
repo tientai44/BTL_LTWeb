@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Security.Claims;
+using X.PagedList;
 
 namespace NotUseAuto.Controllers
 {
@@ -21,6 +22,7 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
+        
         [Authorize(Roles = "Administrator")]
         [Route("/Admin")]
         public IActionResult Index()
@@ -75,13 +77,18 @@ namespace NotUseAuto.Controllers
             return Redirect("/Admin");
         }
         [Authorize(Roles = "Administrator")]
-        public IActionResult Reset()
+        public IActionResult Reset(int ?page)
         {
+            int pageSize = 4;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            var lstacc = context.Users.AsNoTracking().OrderBy(x => x.Id);
+            PagedList<IdentityUser> acclst = new PagedList<IdentityUser>(lstacc, pageNumber, pageSize);
             // select user by roles
             var users = context.Users.ToList();
             var roles = context.Roles.ToList();
             ViewBag.Roles = roles;
-            return View(users);
+            return View(acclst);
+         
         }
         [Authorize(Roles = "Administrator")]
         public IActionResult Edit(string? id)
