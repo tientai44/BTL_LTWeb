@@ -12,6 +12,7 @@ using Microsoft.CodeAnalysis;
 using System.Security.Claims;
 using System;
 using X.PagedList;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NotUseAuto.Controllers
 {
@@ -57,6 +58,7 @@ namespace NotUseAuto.Controllers
         [Route("/")]
         public IActionResult Index(int ? page)
         {
+            
             int pageSize = 8;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var lstProduct = context.Product.AsNoTracking().OrderBy(x => x.Id);
@@ -82,15 +84,17 @@ namespace NotUseAuto.Controllers
             ViewBag.NowCategoriesID=id;
             return View(lst);
         }
-        [HttpPost]
-        public IActionResult Search(string search)
+        public IActionResult Search(string search,int ?page)
         {
             var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
             var categories = context.Category.ToList();
+            int pageSize = 8;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
             ViewBag.Categories = categories;
+            ViewBag.Search = search;
             TempData["search"] = search;
-
-            return View("Index", products);
+            return View(lst);
         }
         public IActionResult Details(int? id)
         {
@@ -146,7 +150,7 @@ namespace NotUseAuto.Controllers
             var cartitem = cart.Find(p => p.product.Id == productid);
             if (cartitem != null)
             {
-                // Đã tồn tại, tăng thêm 1
+                
                 cartitem.Quantity = quantity;
             }
             SaveCartSession(cart);
@@ -160,7 +164,7 @@ namespace NotUseAuto.Controllers
             var cartitem = cart.Find(p => p.product.Id == productid);
             if (cartitem != null)
             {
-                // Đã tồn tại, tăng thêm 1
+                // Bỏ ra khỏi cart
                 cart.Remove(cartitem);
             }
 
@@ -231,7 +235,7 @@ namespace NotUseAuto.Controllers
             int UsrID = Int32.Parse(currentUserId);
             var orders = context.Order.ToList();
             var FindOrder = context.Order.Where(p => p.UserId.Contains(currentUserId)).ToList();
-            return View("ViewOrder", FindOrder);
+            return View( FindOrder);
             
         }
     }

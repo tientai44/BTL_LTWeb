@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Category>
+
+@foreach (var item in Model)
+{
+	<a asp-controller="Customer" asp-action="Index2" asp-route-Id="@item.Id" class="dropdown-item notify-item">
+		<span class="align-middle">@item.Name</span>
+	</a>
+}
