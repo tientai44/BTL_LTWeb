@@ -55,12 +55,17 @@
                                 <!-- Product description -->
                                 <div class="mt-4">
                                     <h6 class="font-14">Retail Price:</h6>
-                                    <h3> $@Model.Price</h3>
+                                    <h3> $@Model.Price.ToString("#,##0")</h3>
                                 </div>
 
                                 <!-- Quantity -->
                                 <div class="mt-4">
                                     <h6 class="font-14">Quantity: @Model.Quantity</h6>  
+                                </div>
+
+                                <!-- Category -->
+                                <div class="mt-4">
+                                    <h6 class="font-14">Category: @await Component.InvokeAsync("Category",Model.CategoryId)</h6>
                                 </div>
 
                                 <!-- Product description -->

@@ -67,7 +67,9 @@
 	<span class="sr-only">Next</span>
 	</a>
 	</div>*@
-	@RenderBody()
+	<div id="divmain">
+		@RenderBody()
+	</div>
 	<footer>
         @await Html.PartialAsync("PartialFooter")
     </footer>

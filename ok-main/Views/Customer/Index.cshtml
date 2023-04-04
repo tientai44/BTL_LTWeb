@@ -1,75 +1,78 @@
-﻿
-@{
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
-    ViewData["Title"] = "Page Title";
+﻿@{
+	Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+	ViewData["Title"] = "Page Title";
 }
 @using X.PagedList.Mvc.Core
 
 @model X.PagedList.IPagedList<Product>
 
-    <div class="container-fluid mm-active">
+<div class="container-fluid mm-active">
 
-        <div class="wrapper mm-show">
-            <div class="content-page">
-                <div class="content">
-                    <div class="row">
-                        @foreach(var item in Model)
-                        {
-                            @await Html.PartialAsync("PartialProduct",item)
-                        }
-                        <!-- end col -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="wrapper mm-show">
+		<div class="content-page">
+			<div class="content">
+				<div class="row">
+					@foreach (var item in Model)
+					{
+
+						@await Html.PartialAsync("PartialProduct",item)
+						<!-- end col -->
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end col -->
+
 
 <br />
 <style>
-        .pagination-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      font-size: 18px;
-      
-    }
+		.pagination-container {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  margin-top: 20px;
+	  font-size: 18px;
 
-    .pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+	}
 
-    .pagination li {
-      margin: 0 5px;
-    }
+	.pagination {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+	}
 
-    .pagination li.active span {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-    }
+	.pagination li {
+	  margin: 0 5px;
+	}
 
-    .pagination li a {
-      color: #007bff;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #007bff;
-      transition: all 0.3s ease;
-    }
+	.pagination li.active span {
+	  background-color: #007bff;
+	  color: #fff;
+	  padding: 10px;
+	  border-radius: 5px;
+	}
 
-    .pagination li a:hover {
-      background-color: #007bff;
-      color: #fff;
-    }
+	.pagination li a {
+	  color: #007bff;
+	  text-decoration: none;
+	  padding: 10px;
+	  border-radius: 5px;
+	  border: 1px solid #007bff;
+	  transition: all 0.3s ease;
+	}
+
+	.pagination li a:hover {
+	  background-color: #007bff;
+	  color: #fff;
+	}
 </style>
 Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-
-@Html.PagedListPager(Model,page=>Url.Action("Index",new{page=page}))
+<div>
+	@Html.PagedListPager(Model,page=>Url.Action("Index",new{page=page}))
+</div>
 <br />

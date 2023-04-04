@@ -33,5 +33,13 @@ namespace NotUseAuto.Controllers
             var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
             return products;
         }
+
+        [HttpGet("categoryId={categoryId}")]
+        public IEnumerable<Product> GetAllProductsByCategory(int categoryId)
+        {
+            Console.WriteLine(categoryId);
+            var products = context.Product.Where(p => p.CategoryId==categoryId).ToList();
+            return products;
+        }
     }
 }
