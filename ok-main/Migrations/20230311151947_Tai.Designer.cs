@@ -10,8 +10,8 @@ using NotUseAuto.Data;
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230324081855_TDao")]
-    partial class TDao
+    [Migration("20230311151947_Tai")]
+    partial class Tai
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,21 +51,21 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "b6d4087a-7b6b-4ebf-8dd6-3ec1a0b14ddf",
+                            ConcurrencyStamp = "ff1f2338-804c-4b82-9248-5ad5987b4b9d",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "02c6c31c-ee60-412b-b31f-4d7fbf5479b3",
+                            ConcurrencyStamp = "e715344d-9e06-4822-bfcb-84de50458e60",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "O",
-                            ConcurrencyStamp = "a0b20484-6a32-47a8-b7dd-98dc97309111",
+                            ConcurrencyStamp = "87ad2e31-7e4f-46fa-bab6-8da05165ee3d",
                             Name = "Owner",
                             NormalizedName = "Owner"
                         });
@@ -737,14 +737,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3f7bbe6e-cc04-4d4d-ba70-3ffd9abb1359",
+                            ConcurrencyStamp = "1ac7baa6-fb7e-4d20-9e68-854dc45916a2",
                             Email = "tientai@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "tientai@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIQMB01ojEYrGxGyD6m4Eu8GrCWadXFJE+9REEd7D0Rk9sLmWEmEMmw1rnpLKBEm5Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMkZnyT6RpXPlxMqcODgkgi/Je4BYvrr7RWORj41WbW6/mHj1A1sQhLLjmpz/udyJA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8e5c487f-79ca-4753-a8fa-8d55d7484684",
+                            SecurityStamp = "1be5d604-5ab4-4851-935a-72ae224d5332",
                             TwoFactorEnabled = false,
                             UserName = "tientai@gmail.com",
                             Address = "Hà Nội",
@@ -756,14 +756,16 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "044f7c01-8aa3-4132-97d6-b1ccbf48dcc4",
+                            ConcurrencyStamp = "183a2942-4fc0-4dc7-98f7-f1fd077c48d2",
                             Email = "vanchung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+
                             NormalizedUserName = "vanchung@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEz59VbRbmQCyEStLsR55PFeZStndfsXUMmSiqc7H4iJEnsGYsUN0QCYsX8kM5FcjA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "548afe98-960d-4af0-a0af-9120f56e11fe",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBsA74fkWwq5m6FbPvR7GSVQsfDOkTQKXBk878VcVESB04bTsilTIOmK18I2A+Ja7A==",
+
+                                          PhoneNumberConfirmed = false,
+                            SecurityStamp = "96c2499c-2075-48d2-bda6-5d04a8baa331",
                             TwoFactorEnabled = false,
                             UserName = "vanchung@gmail.com",
                             Address = "Hà Nội",
@@ -775,14 +777,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ea10cc06-91fb-45c1-8d37-cf5d6ce7540f",
+                            ConcurrencyStamp = "788c6d6a-8009-43a8-aa9f-fe029285fb1a",
                             Email = "ducdao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ducdao@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGfHc8t5A/qGkme7UexSPa5FVWKRHqmzFCQU7UEecfjZXgrOs+UUI4xv+o+1JjKP/Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECDwukfRVTEzNSkl8G12pkfeAZ2IMIbQOIa/a2x/Ce87I6Dxd2icUKme23nXEzZt9w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "63713e65-3374-41e4-885c-06240eebf2b1",
+                            SecurityStamp = "7d67bb0e-1e6f-438d-b9be-00d3650a77f0",
                             TwoFactorEnabled = false,
                             UserName = "ducdao@gmail.com",
                             Address = "Hà Nội",
@@ -794,14 +796,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c650e42d-8b0b-40a3-ae81-cfd71ea75351",
+                            ConcurrencyStamp = "0cb394e5-1014-4360-8f64-dd3febabed71",
                             Email = "hungthinh@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hungthinh@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELF0B5C3dbN8qqNYp/UWUbcbhxZUgVriL4D4QRhwDwnNbVSrjLbVeJiia/WP3YXjJA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGaEzlFYxOrK2+yLOLn6Zwatfucvhy0CDkZ9JuxqezdtdyJhaAMxzH3VCAzVvH5W0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "13182bf8-f7dd-4b5a-ba7e-f46c5e77064c",
+                            SecurityStamp = "4945aa8b-ab00-4d8d-b027-cffcc9ccd659",
                             TwoFactorEnabled = false,
                             UserName = "hungthinh@gmail.com",
                             Address = "Hà Nội",
@@ -813,14 +815,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ac00984b-5035-491e-b856-a000b469f9de",
+                            ConcurrencyStamp = "e5575c51-4371-4c3b-a403-c14b66c2c6df",
                             Email = "vanhung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "vanhung@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPo3wIGewWAVqUp2BGa+JCX9dJx9nwPAi71Et3WksjbLG6FxV6k4+rP+BkAqdx+1UA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELJahoQPr2MjPfOIvfAuq+HtPh2UCfj3AgRH6fvWDnnSDV8QEsPkYpNMEosX9AN4pA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cafeb0da-e394-4092-b354-f8c7a8dbbc7f",
+                            SecurityStamp = "86e8a562-7c38-4084-ab68-be274f3ce037",
                             TwoFactorEnabled = false,
                             UserName = "vanhung@gmail.com",
                             Address = "Hà Nội",
@@ -832,14 +834,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eea8671e-0af1-4b6a-815d-d8047ab3b428",
+                            ConcurrencyStamp = "24c40654-1ad6-42bc-acf6-7740270e4dea",
                             Email = "tienduc@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "tienduc@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHUCGFvnBPbVKKObhnwau5xAom6FMUULTaXt0c8CHJsB8bl04I3UZA4ihSL3K8Fybg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBLBCr72BI+LTofizmPBu7ZYvVoqQSZHWoZDJ7nTnNDlgzgNy0N+czPTtqzsb5QO7w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8e7f68ee-88a3-49a4-a098-142725ae1b6b",
+                            SecurityStamp = "28243a2c-7d4e-4e69-a52c-34da4ef1c4c8",
                             TwoFactorEnabled = false,
                             UserName = "tienduc@gmail.com",
                             Address = "Hà Nội",

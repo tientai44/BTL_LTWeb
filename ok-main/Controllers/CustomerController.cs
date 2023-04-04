@@ -12,6 +12,7 @@ using Microsoft.CodeAnalysis;
 using System.Security.Claims;
 using System;
 using X.PagedList;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NotUseAuto.Controllers
 {
@@ -57,13 +58,14 @@ namespace NotUseAuto.Controllers
         [Route("/")]
         public IActionResult Index(int ? page)
         {
+            
             int pageSize = 8;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
             var lstProduct = context.Product.AsNoTracking().OrderBy(x => x.Id);
             PagedList<Product> lst = new PagedList<Product>(lstProduct, pageNumber, pageSize);
-            var products = context.Product.ToList();
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
+            //var products = context.Product.ToList();
+            //var categories = context.Category.ToList();
+            //ViewBag.Categories = categories;
             return View(lst);
         }
 
@@ -71,8 +73,8 @@ namespace NotUseAuto.Controllers
         public IActionResult Index2(int? id,int?page)
         {
             //var products = context.Product.ToList();
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
+            //var categories = context.Category.ToList();
+            //ViewBag.Categories = categories;
             //var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
             //return View(productSearch);
             int pageSize = 8;
@@ -82,22 +84,24 @@ namespace NotUseAuto.Controllers
             ViewBag.NowCategoriesID=id;
             return View(lst);
         }
-        [HttpPost]
-        public IActionResult Search(string search)
+        public IActionResult Search(string search,int ?page)
         {
             var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
+            //var categories = context.Category.ToList();
+            int pageSize = 8;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
+            //ViewBag.Categories = categories;
+            ViewBag.Search = search;
             TempData["search"] = search;
-
-            return View("Index", products);
+            return View(lst);
         }
         public IActionResult Details(int? id)
         {
             var products = context.Product.ToList();
             var item = products.FirstOrDefault(c => c.Id == id);
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
+            //var categories = context.Category.ToList();
+            //ViewBag.Categories = categories;
             return View(item);
         }
 
@@ -146,7 +150,7 @@ namespace NotUseAuto.Controllers
             var cartitem = cart.Find(p => p.product.Id == productid);
             if (cartitem != null)
             {
-                // Đã tồn tại, tăng thêm 1
+                
                 cartitem.Quantity = quantity;
             }
             SaveCartSession(cart);
@@ -160,7 +164,7 @@ namespace NotUseAuto.Controllers
             var cartitem = cart.Find(p => p.product.Id == productid);
             if (cartitem != null)
             {
-                // Đã tồn tại, tăng thêm 1
+                // Bỏ ra khỏi cart
                 cart.Remove(cartitem);
             }
 
@@ -223,16 +227,26 @@ namespace NotUseAuto.Controllers
         }
         public  IActionResult ViewOrder()
         {
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
-            var claimIdentity = (ClaimsIdentity)User.Identity;
-            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            string currentUserId = claims.Value;
-            int UsrID = Int32.Parse(currentUserId);
-            var orders = context.Order.ToList();
-            var FindOrder = context.Order.Where(p => p.UserId.Contains(currentUserId)).ToList();
-            return View("ViewOrder", FindOrder);
-            
+            //var categories = context.Category.ToList();
+            //ViewBag.Categories = categories;
+            //var claimIdentity = (ClaimsIdentity)User.Identity;
+            //var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            //string currentUserId = claims.Value;
+            //Console.WriteLine(currentUserId);
+            //int UsrID = Int32.Parse(currentUserId);
+            //var orders = context.Order.ToList();
+            //var FindOrder = context.Order.Where(p => p.UserId.Contains(currentUserId)).ToList();
+            //return View( FindOrder);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var orders = context.Order.Include(o => o.cartItems)
+                .Where(o => o.UserId == userId)
+                .ToList();
+            if (orders.Count == 0)
+            {
+                ViewBag.Message = "You don't have any orders yet.";
+            }
+            return View(orders);
+
         }
     }
     

@@ -1,7 +1,7 @@
-﻿@*@model NotUseAuto.Models.Category*@
+﻿
 @{
+    ViewData["Title"] = "Search";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
-    ViewData["Title"] = "Page Title";
 }
 
 @using X.PagedList.Mvc.Core
@@ -71,4 +71,5 @@
 </style>
 Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
-@Html.PagedListPager(Model,page=>Url.Action("Index2",new{page=page,id=ViewBag.NowCategoriesID}))
+@Html.PagedListPager(Model,page=>Url.Action("Search",new{search=ViewBag.Search,page=page}))
+<br />

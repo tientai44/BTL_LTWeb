@@ -15,6 +15,11 @@ namespace NotUseAuto.Data
             : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+        }
+
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<WaitCategory> WaitCategory { get; set; }
