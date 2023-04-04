@@ -142,20 +142,21 @@ namespace NotUseAuto.Controllers
         }
 
         [Route("/updatecart", Name = "updatecart")]
-        [HttpPost]
-        public IActionResult UpdateCart( int productid, int quantity)
+        
+        public IActionResult UpdateCart(int productid, int quantity)
         {
             // Cập nhật Cart thay đổi số lượng quantity ...
             var cart = GetCartItems();
             var cartitem = cart.Find(p => p.product.Id == productid);
             if (cartitem != null)
             {
-                
+                // Đã tồn tại, tăng thêm 1
                 cartitem.Quantity = quantity;
             }
             SaveCartSession(cart);
             // Trả về mã thành công (không có nội dung gì - chỉ để Ajax gọi)
             return Ok();
+            //return View("Index");
         }
         [Route("/removecart/{productid:int}", Name = "removecart")]
         public IActionResult RemoveCart([FromRoute] int productid)
@@ -173,14 +174,19 @@ namespace NotUseAuto.Controllers
         }
         public IActionResult UserView()
         {
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
-            var claimIdentity = (ClaimsIdentity)User.Identity;
+            //var categories = context.Category.ToList();
+            //ViewBag.Categories = categories;
+            //var claimIdentity = (ClaimsIdentity)User.Identity;
 
-            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            string currentUserId = claims.Value;
-            ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == currentUserId);
-
+            //var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            //string currentUserId = claims.Value;
+            //ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == currentUserId);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == userId);
+            if (currentUser == null)
+            {
+                ViewBag.Message = "Have not Log in";
+            }
             ViewBag.Img = currentUser.Image;
             ViewBag.Id = currentUser.Id;
             ViewBag.Email = currentUser.Email;
@@ -192,9 +198,11 @@ namespace NotUseAuto.Controllers
         }
         public IActionResult Checkout()
         {
-            var claimIdentity = (ClaimsIdentity)User.Identity;
-            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            string currentUserId = claims.Value;
+            //var claimIdentity = (ClaimsIdentity)User.Identity;
+            //var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            //string currentUserId = claims.Value;
+
+            string currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             // caculate total price
             var cart = GetCartItems();
@@ -217,6 +225,7 @@ namespace NotUseAuto.Controllers
                     TotalPrice = total,
 
                 };
+                context.Product.FirstOrDefault(x => x.Id == cart[i].product.Id).Quantity -= cart[i].Quantity;
                 context.Order.Add(order);
                 
                 context.SaveChanges();

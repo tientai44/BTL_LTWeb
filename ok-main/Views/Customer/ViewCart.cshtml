@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
     ViewData["Title"] = "Page Title";
 }
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <h2>GIỎ HÀNG</h2>
 
@@ -12,57 +13,58 @@
     decimal total = 0;
     int stt = 1;
 
-      <table class="table">
+    <table class="table">
         <tr>
-          <th>#</th>
-          <th>Sản phẩm</th>
-          <th>Giá</th>
-          <th>Số lượng</th>
-          <th>Thành tiền</th>
-          <th></th>
+            <th>#</th>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th></th>
         </tr>
         @foreach (var cartitem in Model)
         {
             var thanhtien = cartitem.Quantity * cartitem.product.Price;
             total += thanhtien;
 
-                <tr>
-                    
-                   <td>@(stt++)</td>
-                   <td>@cartitem.product.Name</td>
-                   <td>@(cartitem.product.Price.ToString("n0"))</td>
+            <tr>
+
+                <td>@(stt++)</td>
+                <td>@cartitem.product.Name</td>
+                <td>@(cartitem.product.Price.ToString("n0"))</td>
                 <td>
-                    <input asp-for="@cartitem.Quantity" id="@($"quantity-{cartitem.product.Id}")"  /></td>
-                   <td>@(thanhtien.ToString("n0"))</td>
-                   <td>
+                    <input asp-for="@cartitem.Quantity" id="@($"quantity-{cartitem.product.Id}")" />
+                </td>
+                <td>@(thanhtien.ToString("n0"))</td>
+                <td>
                     <button class="btn btn-success updatecartitem" type="submit"
-                    data-productid="@cartitem.product.Id" >
+                    data-productid="@cartitem.product.Id">
                         Cập nhật
                     </button>
                     <a asp-Controller="Customer" asp-action="RemoveCart" asp-route-productid="@cartitem.product.Id"
-                class="btn btn-danger">Xóa</a>
-                   </td>
-                   
-                </tr>
+               class="btn btn-danger">Xóa</a>
+                </td>
+
+            </tr>
         }
-          <tr>
-              <td colspan="4" class="text-right">Tổng tiền</td>
-              <td>@(total.ToString("n0"))</td>
+        <tr>
+            <td colspan="4" class="text-right">Tổng tiền</td>
+            <td>@(total.ToString("n0"))</td>
+            <td></td>
             <td>
-                <a button type="submit" asp-controller="Customer" asp-action="Checkout"
-               class="Checkout">Make order</a>
-            </td>
-          </tr>
-          <tr>
-            
-          </tr>
-      </table>
+
+
+                <a button type="submit" asp-controller="Customer" asp-action="Checkout" class="Checkout">Make order</a>
+
+
+        </tr>
+    </table>
 
     //<a asp-controller="Customer" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a>
 }
 else
 {
-      <p class="alert alert-danger">Giỏ hàng trống</p>
+    <p class="alert alert-danger">Giỏ hàng trống</p>
 }
 <script type="text/javascript">
     var elems = document.getElementsByClassName('Checkout');
@@ -75,23 +77,26 @@ else
 </script>
 
     <script>
-        $(document).ready(function () {
-            $(".updatecartitem").click(function (event) {
-                event.preventDefault();
-                var productid = $(this).attr("data-productid");
-                var quantity = $("#quantity-" + productid).val();
-                $.ajax({
-                    type: "POST",
+    $(document).ready(function () {
+        $(".updatecartitem").click(function (event) {
+            event.preventDefault();
+            var productid = $(this).attr("data-productid");
+            var quantity = $("#quantity-" + productid).val();
+            $.ajax({
+                
                 url: "@Url.RouteUrl("UpdateCart")",
-                    data: {
-                        Id: productid,
-                        Quantity: quantity
-                    },
-                    success: function (result) {
-                        window.location.href = "@Url.RouteUrl("Index")";
-                    }
-                });
+                data: {
+                    productid: productid,
+                    quantity: quantity
+                },
+                success: function (result) {
+                    console.log("Update Succes");
+                    window.location.href = "@Url.RouteUrl("ViewCart")";
+                },
+                Error: function (xhr) {
+                    alert(xhr.responeText);
+                }
             });
         });
-    </script>
-      
+    });
+</script>
