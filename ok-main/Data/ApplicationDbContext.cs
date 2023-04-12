@@ -24,8 +24,7 @@ namespace NotUseAuto.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<WaitCategory> WaitCategory { get; set; }
         public DbSet<Order> Order { get; set; }
-        
-
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             
@@ -336,7 +335,7 @@ namespace NotUseAuto.Data
                 Email = "tientai@gmail.com",
                 NormalizedUserName = "tientai@gmail.com",
                 Image = "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B",
-                DoB = "2002/04/04",
+                DoB = Convert.ToDateTime("2002/04/04"),
                 Address = "Hà Nội",
                 FullName = "Nguyễn Tiến Tài"
             };
@@ -347,7 +346,7 @@ namespace NotUseAuto.Data
                 Email = "ducdao@gmail.com",
                 NormalizedUserName = "ducdao@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/01/01",
+                DoB = Convert.ToDateTime("2002/01/01"),
                 Address = "Hà Nội",
                 FullName = "Trần Đức Đạo"
             };
@@ -360,7 +359,7 @@ namespace NotUseAuto.Data
                 Email = "vanchung@gmail.com",
                 NormalizedUserName = "vanchung@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/01/01",
+                DoB = Convert.ToDateTime("2002/01/01"),
                 Address = "Hà Nội",
                 FullName = "Nguyễn Văn Chung"
 
@@ -372,7 +371,7 @@ namespace NotUseAuto.Data
                 Email = "hungthinh@gmail.com",
                 NormalizedUserName = "hungthinh@gmail.com",
                 Image = "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg",
-                DoB = "2002/01/01",
+                DoB = Convert.ToDateTime("2002/01/01"),
                 Address = "Hà Nội",
                 FullName = "Đỗ Hưng Thịnh"
             };
@@ -383,7 +382,7 @@ namespace NotUseAuto.Data
                 Email = "vanhung@gmail.com",
                 NormalizedUserName = "vanhung@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/01/01",
+                DoB = Convert.ToDateTime("2002/01/01"),
                 Address = "Hà Nội",
                 FullName = "Nguyễn Văn Hưng"
 
@@ -396,7 +395,7 @@ namespace NotUseAuto.Data
                 Email = "tienduc@gmail.com",
                 NormalizedUserName = "tienduc@gmail.com",
                 Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
-                DoB = "2002/01/01",
+                DoB = Convert.ToDateTime("2002/01/01"),
                 Address = "Hà Nội",
                 FullName = "Nguyễn Tiến Đức"
 

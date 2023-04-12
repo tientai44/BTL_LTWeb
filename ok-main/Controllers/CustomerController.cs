@@ -13,6 +13,10 @@ using System.Security.Claims;
 using System;
 using X.PagedList;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNet.Identity;
+using PasswordVerificationResult = Microsoft.AspNetCore.Identity.PasswordVerificationResult;
 
 namespace NotUseAuto.Controllers
 {
@@ -255,6 +259,67 @@ namespace NotUseAuto.Controllers
                 ViewBag.Message = "You don't have any orders yet.";
             }
             return View(orders);
+
+        }
+        [Route("SuaAccount")]
+        [HttpGet]
+        public IActionResult SuaAccount(string ID)
+        {
+            var user = context.Users.Find(ID);
+            return View(user);
+        }
+
+        [Route("SuaAccount")]
+        [HttpPost]
+        public IActionResult SuaAccount(ApplicationUser newUser)
+        {
+            
+            ApplicationUser user = context.Users.Find(newUser.Id) as ApplicationUser;
+            if (ModelState.IsValid)
+            {
+                context.Entry(user).State = EntityState.Modified;
+                //change infor
+                user.PhoneNumber = newUser.PhoneNumber;
+                user.FullName = newUser.FullName;
+                user.Image = newUser.Image;
+                user.Address = newUser.Address;
+                user.Email = newUser.Email;
+                user.DoB = newUser.DoB;
+                context.SaveChanges();
+            }
+            return View("UserView", user);
+            ////try
+            //{
+            //    // Refresh user object from the database
+            //    //context.Entry(user).Reload();
+
+            //    // Compare original values with current values
+            //    if (ModelState.IsValid)
+            //    {
+            //        // Update user object and save changes
+            //        context.Entry(user).State = EntityState.Modified;
+            //        context.Users.Update(user);
+            //        context.SaveChanges();
+
+            //        return View("UserView", user);
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Trọng ngu");
+
+            //        // Handle concurrency conflict
+            //        // You can throw a custom exception or show an error message to the user
+            //    }
+            //}
+            ////catch (DbUpdateConcurrencyException ex)
+            ////{
+            ////    Console.WriteLine(ex.Message);
+            ////    // Handle DbUpdateConcurrencyException
+            ////    // You can throw a custom exception or show an error message to the user
+            ////}
+
+            //return View("UserView",user);
 
         }
     }

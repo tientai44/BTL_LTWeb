@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotUseAuto.Data;
 
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230412133738_Tai1")]
+    partial class Tai1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,21 +51,21 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "b1bb1ba6-4036-4436-be8a-a288f16ce19b",
+                            ConcurrencyStamp = "6169a1cf-cbf4-4fc8-8f6d-a2c63cdff69d",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "6f9bca51-778a-4c62-8a28-cd67a330c739",
+                            ConcurrencyStamp = "2c9ee79d-6793-4295-9495-9116b0633484",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "O",
-                            ConcurrencyStamp = "7f620e89-b3af-436f-b0bd-26caceaf6167",
+                            ConcurrencyStamp = "974f777e-c41b-4252-b9df-7bee69fe82ec",
                             Name = "Owner",
                             NormalizedName = "Owner"
                         });
@@ -719,8 +721,8 @@ namespace NotUseAuto.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DoB")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DoB")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
@@ -735,18 +737,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "377af383-5074-49c4-9a57-b1481f2784eb",
+                            ConcurrencyStamp = "12310edd-7d8c-4fba-b424-1ea066e17129",
                             Email = "tientai@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "tientai@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB1lT6FJpGg5ybge+zXZM+MmwGazM0Wb4dXR9Gvqep6iOyTXUZcTMmwqMltMeETJrA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENNgg+bT+tQ9LAOP8c5mhYgwlqtMEv5kY5baMWwhjtZ7UYQUn5dyVaZdByvMGtRkSA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "02771251-0d61-4b4e-949d-1b5ab8c71e3b",
+                            SecurityStamp = "15dde4b8-2049-43ae-a428-e7a617752013",
                             TwoFactorEnabled = false,
                             UserName = "tientai@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/04/04",
                             FullName = "Nguyễn Tiến Tài",
                             Image = "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B"
                         },
@@ -754,18 +756,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4a37791c-af9a-4561-89fd-f6f8c3c90793",
+                            ConcurrencyStamp = "acd61b6d-0514-4f66-b43e-4a0a39d7840f",
                             Email = "vanchung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "vanchung@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFbfoQKxzGXpfzpVWOxqMNM1IOsJzXDwJAq2aJUHM08B86rqP6cntPAW622FqchBeg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ6b02pWr+w9TR3zddFL1BrFYy3C/i4vdYhkoNIpMgaNXFsVZWgKeE3QyQm+pMmDpQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d80a4f9b-126e-44fc-99f9-24f6ec8a5cd7",
+                            SecurityStamp = "6dc06d0a-a350-45df-b633-3b6950cca115",
                             TwoFactorEnabled = false,
                             UserName = "vanchung@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/01/01",
                             FullName = "Nguyễn Văn Chung",
                             Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
                         },
@@ -773,18 +775,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d44a9224-2e99-4a2c-95be-a0b7b2f885dc",
+                            ConcurrencyStamp = "9d00b857-6e6e-4852-a150-1ea534942fb4",
                             Email = "ducdao@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ducdao@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAED0ZUCMc1PDj+++SXupJ5jNKNFLzd+Oe/zCoDJZuvx/29dypO6abmyjzn2Ik5wXEbw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP14qxlS0sj0/JAZ6rGElgqLmdr1D9bk3x+gupocIFa6SRb+urQ+cPaUuHVOSfHZmA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6dcd7596-e58d-4d68-b86d-abb488a30d21",
+                            SecurityStamp = "f938af85-d3db-48c0-a1ae-04ce44ba7706",
                             TwoFactorEnabled = false,
                             UserName = "ducdao@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/01/01",
                             FullName = "Trần Đức Đạo",
                             Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
                         },
@@ -792,18 +794,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "40ae5159-29af-4189-84db-e8352a5ac1ab",
+                            ConcurrencyStamp = "63ae3001-1bae-454a-b993-be906feec4f0",
                             Email = "hungthinh@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hungthinh@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHMDy+G548K3WjbBYK9+MWMgKw5Q0qPWiFdsq+4TnWpXByVZ58kvL9FUMhoZbUIb2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOoIV7MSwN98449dtR9KoOer+yBJzy6sAt1pVfRlpKozW4Sym5HuQgTpE2yD+YwfsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4976cec3-67ee-4751-a72e-bbcebc4bb1b8",
+                            SecurityStamp = "02ff01cd-043f-4b6b-96a9-66deb4abb842",
                             TwoFactorEnabled = false,
                             UserName = "hungthinh@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/01/01",
                             FullName = "Đỗ Hưng Thịnh",
                             Image = "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg"
                         },
@@ -811,18 +813,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "621ec72e-36cd-49bc-aae9-da5525a5d0ba",
+                            ConcurrencyStamp = "763597bb-30e5-4f54-9d81-1ebe1f47537b",
                             Email = "vanhung@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "vanhung@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBn8EZq7uyFK4YOBlCoQrJBiXk+z+NdJ4V4fZJK5sAl8NlgthKBdBr8E3jFdvAHhig==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA3iQ8HiL5qDClNbuNmeHE7QQC1dl/+agMIkpN+QTcVCtXWCmM6wGigONqmAb4jzwA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "91ff21d6-a247-44ce-a9d4-9c6535a66409",
+                            SecurityStamp = "02a1c149-655b-4f83-8dd3-dbe532a03a4c",
                             TwoFactorEnabled = false,
                             UserName = "vanhung@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/01/01",
                             FullName = "Nguyễn Văn Hưng",
                             Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
                         },
@@ -830,18 +832,18 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d8d07f20-0096-4cd7-a4d9-f99e581cb97a",
+                            ConcurrencyStamp = "854ba91c-b7c4-4477-870b-f20759aa4804",
                             Email = "tienduc@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "tienduc@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMoI8B0p1ZD/xhi460maNLcfI7bfkHwPUjjnZyf79uJX1TpKv30r5SX4yPcC234yMQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEl1GuhZL3fpi24ah5AkinikUynvJM2JRcepVANU6Fws/Az0T+E+MSyGVjTWW0LLMw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "de71e52c-cd35-482a-ae44-b280fdfe3cf3",
+                            SecurityStamp = "5e573d48-d4c7-4e88-a19b-34c0f34d7e03",
                             TwoFactorEnabled = false,
                             UserName = "tienduc@gmail.com",
                             Address = "Hà Nội",
-                            DoB = new DateTime(2002, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DoB = "2002/01/01",
                             FullName = "Nguyễn Tiến Đức",
                             Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
                         });
