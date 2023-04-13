@@ -4,10 +4,10 @@
 }
 
 @{
-    double t = 0;
+    double total = 0;
     @foreach (var item in Model)
     {
-         t = item.TotalPrice;
+         total+= item.TotalPrice;
     }
 
 }
@@ -87,7 +87,7 @@
                                     <tbody>
                                         <tr>
                                             <th>Total :</th>
-                                            <th>$@t</th>
+                                            <th>$@total</th>
                                         </tr>
                                     </tbody>
                                 </table>
