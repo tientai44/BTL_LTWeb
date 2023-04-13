@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNet.Identity;
 using PasswordVerificationResult = Microsoft.AspNetCore.Identity.PasswordVerificationResult;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NotUseAuto.Controllers
 {
@@ -27,7 +29,7 @@ namespace NotUseAuto.Controllers
 
         public const string CARTKEY = "cart";
         private readonly ApplicationDbContext context;
-
+        private readonly IWebHostEnvironment _env;
         List<CartItem> GetCartItems()
         {
             var session = HttpContext.Session;
@@ -53,10 +55,10 @@ namespace NotUseAuto.Controllers
             string jsoncart = JsonConvert.SerializeObject(ls);
             session.SetString(CARTKEY, jsoncart);
         }
-        public CustomerController(ApplicationDbContext dbContext)
+        public CustomerController(ApplicationDbContext dbContext, IWebHostEnvironment env)
         {
             context = dbContext;
-
+            _env = env;
         }
         [Route("/Customer/")]
         [Route("/")]
@@ -277,14 +279,28 @@ namespace NotUseAuto.Controllers
             ApplicationUser user = context.Users.Find(newUser.Id) as ApplicationUser;
             if (ModelState.IsValid)
             {
+                var imageFile = Request.Form.Files.FirstOrDefault();
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var imagePath = Path.Combine(_env.WebRootPath, "images", imageFile.FileName);
+                    using (var stream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        imageFile.CopyTo(stream);
+                    }
+                    
+                    // Lưu đường dẫn của file ảnh vào thuộc tính Image của đối tượng user
+                    user.Image = "/images/" + imageFile.FileName;
+                }
                 context.Entry(user).State = EntityState.Modified;
                 //change infor
                 user.PhoneNumber = newUser.PhoneNumber;
                 user.FullName = newUser.FullName;
-                user.Image = newUser.Image;
+                //user.Image = newUser.Image;
                 user.Address = newUser.Address;
                 user.Email = newUser.Email;
                 user.DoB = newUser.DoB;
+                
+               
                 context.SaveChanges();
             }
             return View("UserView", user);

@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualBasic;
 using NotUseAuto.Models;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Linq;
 
 namespace NotUseAuto.Models
 {
@@ -15,6 +18,9 @@ namespace NotUseAuto.Models
         public string FullName { get; set; }
         public DateTime DoB { get; set; }
         public string Address { get; set; }
+
+        
+        
 
     }
 }
