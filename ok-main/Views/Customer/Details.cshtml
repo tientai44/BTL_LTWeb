@@ -16,18 +16,18 @@
                         <div class="col-lg-5">
                             <!-- Product image -->
                             <a href="javascript: void(0);" class="text-center d-block mb-4">
-                                <img src="@Model.Image1" class="img-fluid" style="max-width: 280px;" alt="Product-img">
+                                <img src="@Model.Image1" class="img-fluid big-image" style="width: 280px; height:400px" alt="Product-img">
                             </a>
 
                             <div class="d-lg-flex d-none justify-content-center">
-                                <a href="javascript: void(0);">
-                                    <img src="@Model.Image1" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
+                                <a href="javascript: void(0);" onclick="showImage('@Model.Image1');">
+                                    <img src="@Model.Image1" class="img-fluid img-thumbnail p-2" style="max-width: 75px; height:100px" alt="Product-img">
                                 </a>
-                                <a href="javascript: void(0);" class="ml-2">
-                                    <img src="@Model.Image2" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
+                                <a href="javascript: void(1);" onclick="showImage('@Model.Image2');" class="ml-2">
+                                    <img src="@Model.Image2" class="img-fluid img-thumbnail p-2" style="max-width: 75px; height:100px" alt="Product-img">
                                 </a>
-                                <a href="javascript: void(0);" class="ml-2">
-                                    <img src="@Model.Image3" class="img-fluid img-thumbnail p-2" style="max-width: 75px;" alt="Product-img">
+                                <a href="javascript: void(2);" onclick="showImage('@Model.Image3');" class="ml-2">
+                                    <img src="@Model.Image3" class="img-fluid img-thumbnail p-2" style="max-width: 75px; height:100px" alt="Product-img">
                                 </a>
                             </div>
                         </div> <!-- end col -->
@@ -111,3 +111,11 @@
 
 </div>
 
+<script>
+    const mainImage = document.querySelector(".big-image")
+    console.log(mainImage)
+   function showImage(src) {
+       mainImage.src = src;
+       console.log(mainImage.src)
+   }
+</script>

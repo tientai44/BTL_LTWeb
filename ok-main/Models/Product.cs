@@ -23,12 +23,12 @@ namespace NotUseAuto.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
+        
         
         public string Image1 { get; set; }
-        [Required]
+        
         public string Image2 { get; set; }
-        [Required]
+        
         public string Image3 { get; set; }
         [Required]
         public int CategoryId { get; set; }
